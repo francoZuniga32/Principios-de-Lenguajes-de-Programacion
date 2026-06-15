@@ -37,4 +37,20 @@ asociado(L1,L2,[X3|L3],[R|Cod],S):-
     asociado(L1,L2,L3,Cod,S2),
     S is R + S2.
 
-    
+%concatena listas manteniendo el orden%
+concatenacion([],L1,L1).
+concatenacion([X|L1],L2,[X|R]):- concatenacion(L1,L2,R).
+
+% mover izquierda %
+% [1,2,3,4] => [2,3,4,1] %
+moverIzquierdaAux([],E,[E]).
+moverIzquierdaAux([X|L1],E,[X|R]):- moverIzquierdaAux(L1,E,R).
+moverIzquierda([X | L1], R) :- moverIzquierdaAux(L1,X,R).
+
+% mover derecha %
+% [1,2,3,4]=>[4,1,2,3] % 
+
+moverDerechaAux([X|[]],X,[]).
+moverDerechaAux([X|L1],R,[X|R2]):- moverDerechaAux(L1,R,R2).
+
+moverDerecha(L1,[R|R2]):- moverDerechaAux(L1,R,R2).
