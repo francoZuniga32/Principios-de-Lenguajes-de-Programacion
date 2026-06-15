@@ -47,10 +47,21 @@ moverIzquierdaAux([],E,[E]).
 moverIzquierdaAux([X|L1],E,[X|R]):- moverIzquierdaAux(L1,E,R).
 moverIzquierda([X | L1], R) :- moverIzquierdaAux(L1,X,R).
 
+% [2,3,4] 1 R => [2,3,4,1]%
+% [3,4] 1 R => [3,4,1]%
+% [4] 1 R => [4,1]%
+% [] 1 [1] %
+
 % mover derecha %
-% [1,2,3,4]=>[4,1,2,3] % 
+% [1,2,3,4]=>[4,1,2,3] %
 
 moverDerechaAux([X|[]],X,[]).
 moverDerechaAux([X|L1],R,[X|R2]):- moverDerechaAux(L1,R,R2).
 
 moverDerecha(L1,[R|R2]):- moverDerechaAux(L1,R,R2).
+    
+% [1,2,3,4] [R|R2] => 4 [4,1,2,3] %
+% [1,2,3,4] R [1|R2] => 4 [1,2,3] %
+% [2,3,4] R [2|R2] => 4 [2,3]%
+% [3,4] R [3|R2] => 4 [3] %
+% [4] 4 [] %
