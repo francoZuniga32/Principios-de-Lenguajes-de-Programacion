@@ -65,3 +65,14 @@ moverDerecha(L1,[R|R2]):- moverDerechaAux(L1,R,R2).
 % [2,3,4] R [2|R2] => 4 [2,3]%
 % [3,4] R [3|R2] => 4 [3] %
 % [4] 4 [] %
+
+% suma de listas %
+% [1,2,3,4,5] [3,2,4] => [4,4,7,4,5] %
+% [1,2] [3,2,4] => [4,4,4] %
+
+sumarElementos(L1,[],L1).
+sumarElementos([],L2,L2).
+sumarElementos([],[],[]).
+sumarElementos([X1|L1],[X2|L2],[X3|R]):- X3 is X1+X2, sumarElementos(L1,L2,R).
+
+
