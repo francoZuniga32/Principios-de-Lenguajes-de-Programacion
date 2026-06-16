@@ -28,7 +28,7 @@ suma_cuadrado([X|L1], R2):-
     R2 is S + R.
 
 %parcial 2025 carus%
-buscar_elemento([X1|_],[X2|_],X3,X2):- X1 == X3.
+buscar_elemento([X1|_],[X2|_],X1,X2).
 buscar_elemento([X1|L1],[_|L2],X3,R):- X1 \== X3, buscar_elemento(L1,L2,X3,R).
 
 asociado(_,_,[],[],0).
