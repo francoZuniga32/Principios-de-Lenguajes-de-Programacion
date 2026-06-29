@@ -1,6 +1,7 @@
 %La Tenes Adentro Erick%
 
 %rotar n elementos%
+fragmentar([],_,_,[],[]).
 fragmentar(L1, N, N,[],L1). 
 fragmentar([X|L1],I, N, [X|R], R2) :- I @< N, I2 is I + 1, fragmentar(L1, I2, N, R, R2). 
 
