@@ -29,3 +29,12 @@ intercalar(L1, L2,R):- intercalarAux(L1, L2, R, 1).
 
 rangoPaso(I,H,P,[I|R]) :- I @=< H, I2 is I + P, rangoPaso(I2,H,P,R).
 rangoPaso(_,_,_,[]).
+
+%frecuencia%
+
+frecuenciaElemento(_,[],[],0).
+frecuenciaElemento(E,[X2|L1],R,C2) :- E == X2, frecuenciaElemento(E,L1,R,C), C2 is C + 1.
+frecuenciaElemento(E,[X2|L1],[X2|R],C):- frecuenciaElemento(E,L1,R,C).
+
+frecuencia([],[]).
+frecuencia([X1|L1],[X1,C|R]) :- frecuenciaElemento(X1,[X1|L1],R2,C), frecuencia(R2,R).
