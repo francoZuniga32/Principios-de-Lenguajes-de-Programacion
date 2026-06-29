@@ -16,3 +16,11 @@ rotar(L1,N,R) :- fragmentar(L1,0,N,R1,R2), unir(R1,R2,R).
 mayores([],_,[],0).
 mayores([X1|L1], U,[X1|R], C2) :- X1 @>= U,mayores(L1, U, R, C), C2 is C + 1.
 mayores([_|L1], U, R, C) :- mayores(L1, U, R, C).
+
+%intercalar%
+
+intercalarAux([],L2, L2,1).
+intercalarAux(L1, [],L1,0).
+intercalarAux([X1|L1], L2, [X1|R],1):- intercalarAux(L1,L2,R,0).
+intercalarAux(L1,[X2|L2],[X2|R],0):- intercalarAux(L1,L2,R,1).
+intercalar(L1, L2,R):- intercalarAux(L1, L2, R, 1).
