@@ -24,3 +24,8 @@ intercalarAux(L1, [],L1,0).
 intercalarAux([X1|L1], L2, [X1|R],1):- intercalarAux(L1,L2,R,0).
 intercalarAux(L1,[X2|L2],[X2|R],0):- intercalarAux(L1,L2,R,1).
 intercalar(L1, L2,R):- intercalarAux(L1, L2, R, 1).
+
+%rango con paso%
+
+rangoPaso(I,H,P,[I|R]) :- I @=< H, I2 is I + P, rangoPaso(I2,H,P,R).
+rangoPaso(_,_,_,[]).
